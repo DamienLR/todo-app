@@ -30,9 +30,9 @@ export default function EnterNewTodo() {
   const conditionalRender = () => {
     if (!taskArray.length) {
       return (
-        <div>
+        <React.Fragment>
           <p>No tasks.</p>
-        </div>
+        </React.Fragment>
       );
     } else {
       return <React.Fragment>{renderTaskArray}</React.Fragment>;
@@ -48,7 +48,6 @@ export default function EnterNewTodo() {
           value={newTask}
           onChange={handleChange}
         />
-        <button type="submit">Submit</button>
       </form>
       {conditionalRender()}
     </div>
