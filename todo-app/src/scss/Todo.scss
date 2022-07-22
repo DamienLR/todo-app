@@ -3,6 +3,10 @@
   align-items: center;
 }
 
+.todo__text {
+  padding-left: 0.5rem;
+}
+
 .todo__text--complete {
   color: grey;
   text-decoration: line-through;

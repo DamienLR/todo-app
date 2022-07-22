@@ -17,7 +17,7 @@ export default function Todo({ task }) {
   return (
     <div className="todo">
       <input type="checkbox" onClick={handleClick} />
-      <p className={`font-secondary ${setClass()}`}>{task}</p>
+      <p className={`todo__text font-secondary ${setClass()}`}>{task}</p>
     </div>
   );
 }
