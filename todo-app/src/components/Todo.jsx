@@ -15,9 +15,9 @@ export default function Todo({ task }) {
   const setClass = () => (isCheckboxTicked ? "todo__text--complete" : "");
 
   return (
-    <div>
+    <div className="todo">
       <input type="checkbox" onClick={handleClick} />
-      <p className={setClass()}>{task}</p>
+      <p className={`font-secondary ${setClass()}`}>{task}</p>
     </div>
   );
 }
