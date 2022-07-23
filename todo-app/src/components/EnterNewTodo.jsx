@@ -7,6 +7,7 @@ export default function EnterNewTodo() {
     "add a remove button",
     "add a filter option",
     "find a different way to generate keys",
+    "add a button to clear all tasks",
   ]);
 
   const renderTaskArray = taskArray.map((task, index) => {
@@ -39,6 +40,10 @@ export default function EnterNewTodo() {
     }
   };
 
+  const clearTasks = () => {
+    setTaskArray([]);
+  };
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -50,6 +55,7 @@ export default function EnterNewTodo() {
         />
       </form>
       {conditionalRender()}
+      <button onClick={clearTasks}>Clear all tasks</button>
     </div>
   );
 }
