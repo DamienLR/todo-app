@@ -1,18 +1,25 @@
 import React, { useState } from "react";
 import Todo from "./Todo";
+import { v4 as uuidv4 } from "uuid";
 
 export default function EnterNewTodo() {
-  const [newTask, setNewTask] = useState("");
-  const [taskArray, setTaskArray] = useState([
-    "add a remove button",
-    "add a filter option",
-    "find a different way to generate keys",
-    "add a button to clear all tasks",
-  ]);
+  const boilerplateTasks = [
+    { task: "add a remove button", id: uuidv4(), isComplete: false },
+    { task: "add a filter option", id: uuidv4(), isComplete: false },
+    {
+      task: "find a different way to generate keys",
+      id: uuidv4(),
+      isComplete: false,
+    },
+    { task: "add a button to clear all tasks", id: uuidv4(), isComplete: true },
+  ];
 
-  const renderTaskArray = taskArray.map((task, index) => {
+  const [newTask, setNewTask] = useState("");
+  const [taskArray, setTaskArray] = useState(boilerplateTasks);
+
+  const renderTaskArray = taskArray.map(({ task, id }) => {
     return (
-      <div key={index}>
+      <div key={id}>
         <Todo task={task} />
       </div>
     );
@@ -20,7 +27,13 @@ export default function EnterNewTodo() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setTaskArray(() => taskArray.concat(newTask));
+    setTaskArray(() =>
+      taskArray.concat({
+        task: newTask,
+        id: taskArray.length + 1,
+        isComplete: false,
+      })
+    );
     setNewTask("");
   };
 
