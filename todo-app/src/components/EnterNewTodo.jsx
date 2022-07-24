@@ -20,7 +20,7 @@ export default function EnterNewTodo() {
   const renderTaskArray = taskArray.map(({ task, id }) => {
     return (
       <div key={id}>
-        <Todo task={task} />
+        <Todo task={task} setTaskArray={setTaskArray} id={id} />
       </div>
     );
   });
